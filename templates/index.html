@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Analyzing World Development Data</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body{
+            font-family: "Lato", sans-serif;
+            background-color: #cbf9e9;
+        }
+        h1,h2,h3,h4,h5,h6 {
+          font-family: "Lato", sans-serif;
+          text-decoration: underline;
+        }
+        .w3-bar,h1,button {
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .formin {
+            float: left; padding: 8px;
+        }
+        header {
+            background-image: url("{{ url_for('static', filename='world.jpg') }}");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 150%;
+            position: relative;
+        }
+        header #titl {
+            width: 98%;
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+
+
+        }
+        .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  /* Hover effect */
+  .button:hover {
+    background-color: #45a049; /* Darker green */
+  }
+        .w3-content h1 {
+            color: green;
+        }
+
+  </style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-green w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-green w3-center" style="padding:128px 16px;" >
+    <div id="titl">
+        <h1 class="w3-jumbo">Analyzing World Development Data</h1>
+    </div>
+</header>
+
+
+<!-- zero Grid -->
+<div class="w3-row-padding w3-padding-32 w3-container" style="padding-left: 8px; padding-right: 8px;">
+    <div class="w3-content">
+        <h1 >Project Title</h1>
+        <p  style='margin-left: 40px;'> Analyzing World Development Data and predicting CPI from the given instance</p>
+
+
+<div class="w3-row-padding  w3-padding-32 w3-container" style="padding-left: 8px; padding-right: 8px;">
+    <div class="w3-content">
+        <h1>CPI Prediction Model </h1>
+
+        <p> <strong> Model Performance Metrics</strong> <br>
+            - MAE : 7.021877536018819 <br>
+            - MSE : 82.03286224926202 <br>
+            - R²  : 0.7832484426115179 </p>
+
+        <form id="myform" action="" method="post" style="clear: both;">
+            <fieldset>
+
+                <div class="formin">
+                    <label for="incomeclass">Income Class:</label><br>
+                    <input id="incomeclass" type="text" name="incomeclass" list="class">
+                    <datalist id="class">
+                        <option value="Low income">Low income</option>
+                        <option value="Upper middle income">Upper middle income</option>
+                        <option value="Lower middle income">Lower middle income</option>
+                        <option value="High income">High income</option>
+                    </datalist>
+                </div>
+
+                <div class="formin">
+                    <label for="country">Country:</label><br>
+                    <input id="country" type="text" name="country" list="countryl">
+                    <datalist id="countryl">
+                          <option value="Afghanistan">Afghanistan</option>
+                          <option value="Albania">Albania</option>
+                          <option value="Algeria">Algeria</option>
+                          <option value="Angola">Angola</option>
+                          <option value="Argentina">Argentina</option>
+                          <option value="Armenia">Armenia</option>
+                          <option value="Australia">Australia</option>
+                          <option value="Austria">Austria</option>
+                          <option value="Azerbaijan">Azerbaijan</option>
+                          <option value="Bahamas, The">Bahamas, The</option>
+                          <option value="Bahrain">Bahrain</option>
+                          <option value="Bangladesh">Bangladesh</option>
+                          <option value="Barbados">Barbados</option>
+                          <option value="Belarus">Belarus</option>
+                          <option value="Belgium">Belgium</option>
+                          <option value="Belize">Belize</option>
+                          <option value="Benin">Benin</option>
+                          <option value="Bhutan">Bhutan</option>
+                          <option value="Bolivia">Bolivia</option>
+                          <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                          <option value="Botswana">Botswana</option>
+                          <option value="Brazil">Brazil</option>
+                          <option value="Brunei Darussalam">Brunei Darussalam</option>
+                          <option value="Bulgaria">Bulgaria</option>
+                          <option value="Burkina Faso">Burkina Faso</option>
+                          <option value="Burundi">Burundi</option>
+                          <option value="Cabo Verde">Cabo Verde</option>
+                          <option value="Cambodia">Cambodia</option>
+                          <option value="Cameroon">Cameroon</option>
+                          <option value="Canada">Canada</option>
+                          <option value="Central African Republic">Central African Republic</option>
+                          <option value="Chad">Chad</option>
+                          <option value="Chile">Chile</option>
+                          <option value="China">China</option>
+                          <option value="Colombia">Colombia</option>
+                          <option value="Comoros">Comoros</option>
+                          <option value="Congo, Dem. Rep.">Congo, Dem. Rep.</option>
+                          <option value="Congo, Rep.">Congo, Rep.</option>
+                          <option value="Costa Rica">Costa Rica</option>
+                          <option value="Cote d'Ivoire">Cote d'Ivoire</option>
+                          <option value="Croatia">Croatia</option>
+                          <option value="Cuba">Cuba</option>
+                          <option value="Cyprus">Cyprus</option>
+                          <option value="Czechia">Czechia</option>
+                          <option value="Denmark">Denmark</option>
+                          <option value="Djibouti">Djibouti</option>
+                          <option value="Dominica">Dominica</option>
+                          <option value="Dominican Republic">Dominican Republic</option>
+                          <option value="Ecuador">Ecuador</option>
+                          <option value="Egypt">Egypt</option>
+                          <option value="El Salvador">El Salvador</option>
+                          <option value="Equatorial Guinea">Equatorial Guinea</option>
+                          <option value="Eritrea">Eritrea</option>
+                          <option value="Estonia">Estonia</option>
+                          <option value="Eswatini">Eswatini</option>
+                          <option value="Ethiopia">Ethiopia</option>
+                          <option value="Fiji">Fiji</option>
+                          <option value="Finland">Finland</option>
+                          <option value="France">France</option>
+                          <option value="French Polynesia">French Polynesia</option>
+                          <option value="Gabon">Gabon</option>
+                          <option value="Gambia">Gambia</option>
+                          <option value="Georgia">Georgia</option>
+                          <option value="Germany">Germany</option>
+                          <option value="Ghana">Ghana</option>
+                          <option value="Greece">Greece</option>
+                          <option value="Grenada">Grenada</option>
+                          <option value="Guam">Guam</option>
+                          <option value="Guatemala">Guatemala</option>
+                          <option value="Guinea">Guinea</option>
+                          <option value="Guinea-Bissau">Guinea-Bissau</option>
+                          <option value="Guyana">Guyana</option>
+                          <option value="Haiti">Haiti</option>
+                          <option value="Honduras">Honduras</option>
+                          <option value="Hong Kong">Hong Kong</option>
+                          <option value="Hungary">Hungary</option>
+                          <option value="Iceland">Iceland</option>
+                          <option value="India">India</option>
+                          <option value="Indonesia">Indonesia</option>
+                          <option value="Iran">Iran</option>
+                          <option value="Iraq">Iraq</option>
+                          <option value="Ireland">Ireland</option>
+                          <option value="Israel">Israel</option>
+                          <option value="Italy">Italy</option>
+                          <option value="Jamaica">Jamaica</option>
+                          <option value="Japan">Japan</option>
+                          <option value="Jordan">Jordan</option>
+                          <option value="Kazakhstan">Kazakhstan</option>
+                          <option value="Kenya">Kenya</option>
+                          <option value="Korea, Dem. People's Rep.">Korea, Dem. People's Rep.</option>
+                          <option value="Korea, Rep.">Korea, Rep.</option>
+                          <option value="Kosovo">Kosovo</option>
+                          <option value="Kuwait">Kuwait</option>
+                          <option value="Kyrgyzstan">Kyrgyzstan</option>
+                          <option value="Lao PDR">Lao PDR</option>
+                          <option value="Latvia">Latvia</option>
+                          <option value="Lebanon">Lebanon</option>
+                          <option value="Lesotho">Lesotho</option>
+                          <option value="Liberia">Liberia</option>
+                          <option value="Libya">Libya</option>
+                          <option value="Lithuania">Lithuania</option>
+                          <option value="Luxembourg">Luxembourg</option>
+                          <option value="Madagascar">Madagascar</option>
+                          <option value="Malawi">Malawi</option>
+                          <option value="Malaysia">Malaysia</option>
+                          <option value="Maldives">Maldives</option>
+                          <option value="Mali">Mali</option>
+                          <option value="Malta">Malta</option>
+                          <option value="Mauritania">Mauritania</option>
+                          <option value="Mauritius">Mauritius</option>
+                          <option value="Mexico">Mexico</option>
+                          <option value="Moldova">Moldova</option>
+                          <option value="Mongolia">Mongolia</option>
+                          <option value="Montenegro">Montenegro</option>
+                          <option value="Morocco">Morocco</option>
+                          <option value="Mozambique">Mozambique</option>
+                          <option value="Myanmar">Myanmar</option>
+                          <option value="Namibia">Namibia</option>
+                          <option value="Nepal">Nepal</option>
+                          <option value="Netherlands">Netherlands</option>
+                          <option value="New Zealand">New Zealand</option>
+                          <option value="Nicaragua">Nicaragua</option>
+                          <option value="Niger">Niger</option>
+                          <option value="Nigeria">Nigeria</option>
+                          <option value="North Macedonia">North Macedonia</option>
+                          <option value="Norway">Norway</option>
+                          <option value="Oman">Oman</option>
+                          <option value="Pakistan">Pakistan</option>
+                          <option value="Panama">Panama</option>
+                          <option value="Papua New Guinea">Papua New Guinea</option>
+                          <option value="Paraguay">Paraguay</option>
+                          <option value="Peru">Peru</option>
+                          <option value="Philippines">Philippines</option>
+                          <option value="Poland">Poland</option>
+                          <option value="Portugal">Portugal</option>
+                          <option value="Puerto Rico">Puerto Rico</option>
+                          <option value="Qatar">Qatar</option>
+                          <option value="Romania">Romania</option>
+                          <option value="Russia">Russia</option>
+                          <option value="Rwanda">Rwanda</option>
+                          <option value="Samoa">Samoa</option>
+                          <option value="São Tomé and Príncipe">São Tomé and Príncipe</option>
+                          <option value="Saudi Arabia">Saudi Arabia</option>
+                          <option value="Senegal">Senegal</option>
+                          <option value="Serbia">Serbia</option>
+                          <option value="Seychelles">Seychelles</option>
+                          <option value="Sierra Leone">Sierra Leone</option>
+                          <option value="Singapore">Singapore</option>
+                          <option value="Slovak Republic">Slovak Republic</option>
+                          <option value="Slovenia">Slovenia</option>
+                          <option value="Solomon Islands">Solomon Islands</option>
+                          <option value="Somalia">Somalia</option>
+                          <option value="South Africa">South Africa</option>
+                          <option value="South Sudan">South Sudan</option>
+                          <option value="Spain">Spain</option>
+                          <option value="Sri Lanka">Sri Lanka</option>
+                          <option value="St. Lucia">St. Lucia</option>
+                          <option value="St. Vincent and the Grenadines">St. Vincent and the Grenadines</option>
+                          <option value="Sudan">Sudan</option>
+                          <option value="Suriname">Suriname</option>
+                          <option value="Sweden">Sweden</option>
+                          <option value="Switzerland">Switzerland</option>
+                          <option value="Syria">Syria</option>
+                          <option value="Tajikistan">Tajikistan</option>
+                          <option value="Tanzania">Tanzania</option>
+                          <option value="Thailand">Thailand</option>
+                          <option value="Timor-Leste">Timor-Leste</option>
+                          <option value="Togo">Togo</option>
+                          <option value="Tonga">Tonga</option>
+                          <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                          <option value="Tunisia">Tunisia</option>
+                          <option value="Turkey">Turkey</option>
+                          <option value="Turkmenistan">Turkmenistan</option>
+                          <option value="Uganda">Uganda</option>
+                          <option value="Ukraine">Ukraine</option>
+                          <option value="United Arab Emirates">United Arab Emirates</option>
+                          <option value="United Kingdom">United Kingdom</option>
+                          <option value="United States">United States</option>
+                          <option value="Uruguay">Uruguay</option>
+                          <option value="Uzbekistan">Uzbekistan</option>
+                          <option value="Vanuatu">Vanuatu</option>
+                          <option value="Venezuela">Venezuela</option>
+                          <option value="Vietnam">Vietnam</option>
+                          <option value="Yemen">Yemen</option>
+                          <option value="Zambia">Zambia</option>
+                          <option value="Zimbabwe">Zimbabwe</option>
+                    </datalist>
+                </div>
+
+                <div class="formin">
+                  <label for="electricity_access">Electricity Access:</label><br>
+                  <input type="number" step="0.000000001" min="-100000"  id="electricity_access" name="electricity_access" value="">
+                </div>
+
+                <div class="formin">
+                  <label for="gdp">GDP:</label><br>
+                  <input type="number" step = "0.0000000001" min="-100000"  id="gdp" name="gdp" value="">
+                </div>
+
+                <div class="formin">
+                  <label for="gdp_capita">GDP Per Capita:</label><br>
+                  <input type="number" step="0.0000000001" min="-100000"  id="gdp_capita" name="gdp_capita" value="">
+                </div>
+
+                <div class="formin">
+                  <label for="labor_rate">Labor Rate:</label><br>
+                  <input type="number" step="0.0000000001" min="-100000"  id="labor_rate" name="labor_rate" value="">
+                </div>
+
+                <div class="formin">
+                  <label for="labor_force">Labor Force:</label><br>
+                  <input type="number" step="0.0000000001" min="-100000"  id="labor_force" name="labor_force" value="">
+                </div>
+
+                <div class="formin">
+                  <label for="land_area">Land Area:</label><br>
+                  <input type="number" step="0.0000000001" min="-100000"  id="land_area" name="land_area" value="">
+                </div>
+
+                <div class="formin">
+                  <label for="life_expectancy">Life Expectancy:</label><br>
+                  <input type="number" step="0.0000000001" min="-100000"  id="life_expectancy" name="life_expectancy" value="">
+                </div>
+
+                <div class="formin">
+                  <label for="adult_literacy">Adult Literacy:</label><br>
+                  <input type="number" step = "0.0000000001" min="-100000"  id="adult_literacy" name="adult_literacy" value="">
+                </div>
+
+                <div class="formin">
+                  <label for="water_access">Water Access:</label><br>
+                  <input type="number" step="0.0000000001" min="-100000"  id="water_access" name="water_access" value="">
+                </div>
+
+                <div class="formin">
+                  <label for="air_pollution">Air Pollution:</label><br>
+                  <input type="number" step="0.0000000001" min="-100000"  id="air_pollution" name="air_pollution" value="">
+                </div>
+
+                <div class="formin">
+                  <label for="population_density">Population Density:</label><br>
+                  <input type="number" step="0.0000000001" min="-100000"  id="population_density" name="population_density" value="">
+                </div>
+
+                <div class="formin">
+                  <label for="population">Population:</label><br>
+                  <input type="number" step="0.0000000001" min="-100000"  id="population" name="population" value="">
+                </div>
+
+                <div class="formin">
+                  <label for="alcohol_consumption">Alcohol Consumption:</label><br>
+                  <input type="number" step="0.0000000001" min="-100000"  id="alcohol_consumption" name="alcohol_consumption" value="">
+                </div>
+
+                <div class="formin">
+                  <label for="unemployment_rate">Unemployment Rate:</label><br>
+                  <input type="number" step= "0.0000000001" min="-100000"  id="unemployment_rate" name="unemployment_rate" value="">
+                </div>
+
+                <div class="formin">
+                  <label for="social_support">Social Support:</label><br>
+                  <input type="number" step="0.0000000001" min="-100000"  id="social_support" name="social_support" value="">
+                </div>
+
+                <div class="formin">
+                  <label for="freedom">Freedom:</label><br>
+                  <input type="number" step="0.0000000001" min="-100000"  id="freedom" name="freedom" value="">
+                </div>
+
+                <div class="formin">
+                  <label for="generosity">Generosity:</label><br>
+                  <input type="number" step="0.0000000001" min="-100000"  id="generosity" name="generosity" value="">
+                </div>
+
+
+                <div class="formin" style="clear: both;float: none;">
+                    <button class="button">Predict</button>
+                    <div id="prediction">{{ pred }}</div>
+                </div>
+                <!-- {{ pred }} -->
+
+            </fieldset>
+        </form>
+
+
+
+    </div>
+</div>
+<p style='margin-left: 40px;'> This dataset presents a compilation of averaged world development indicator data spanning the years 2015 to 2018, amalgamated from various reputable sources:</p>
+<OL>
+    <li><strong> The World Bank </strong>- Providing data on population, income classification, pollution levels, access to electricity, life expectancy, and more.</li>
+    <li> <strong> World Happiness Report</strong> - Offering insights into social support, generosity, and freedom to make life choices.</li>
+    <li> <strong> Transparency International</strong> - Source of data regarding the corruption perceptions index. The dataset 186 rows and 20 columns for the variables listed below.</li>
+</OL>
+
+<table style='margin-left: 40px;' class="w3-table w3-striped w3-border ">
+     
+        <th><b>Country</b></th>
+        <th>Name of the country</th>
+     <tr>
+        <td><b>Electricity_access</b></td>
+        <td>Access to electricity (% of population)</td>
+     </tr>
+     <tr>
+        <td><b>gdp</b></td>
+        <td>GDP (current US$)</td>
+     </tr>
+     <tr>
+        <td><b>gdp_capita</b></td>
+        <td>GDP per capita (current US$)</td>
+     </tr>
+     <tr>
+        <td><b>labor_rate</b></td>
+        <td>Labor force participation rate, total (% of total population ages 15+)</td>
+     </tr>
+     <tr>
+        <td><b>labor_force</b></td>
+        <td>Labor force, total</td>
+     </tr>
+     <tr>
+        <td><b>land_area</b></td>
+        <td>Land area (sq. km)</td>
+     </tr>
+     <tr>
+        <td><b>life_expectancy</b></td>
+        <td>Life expectancy at birth, total (years)</td>
+     </tr>
+     <tr>
+        <td><b>adult_literacy</b></td>
+        <td>Literacy rate, adult total (% of people ages 15 and above)</td>
+     </tr>
+     <tr>
+        <td><b>water_access</b></td>
+        <td>People using at least basic drinking water services (% of population)</td>
+     </tr>
+     <tr>
+        <td><b>air_pollution</b></td>
+        <td>PM2.5 air pollution, population exposed to levels exceeding WHO guideline value (% of total)</td>
+     </tr>
+     <tr>
+        <td><b>population_density</b></td>
+        <td>Population density (people per sq. km of land area)</td>
+     </tr>
+     <tr>
+        <td><b>population</b></td>
+        <td>Population, total</td>
+     </tr>
+     <tr>
+        <td><b>alcohol_consumption</b></td>
+        <td>Total alcohol consumption per capita (liters of pure alcohol, projected estimates, 15+ years of age)</td>
+     </tr>
+     <tr>
+        <td><b>unemployment_rate</b></td>
+        <td>Unemployment, total (% of total labor force) (modeled ILO estimate)</td>
+     </tr>
+     <tr>
+        <td><b>social_support</b></td>
+        <td>Social Support rating based on World Happiness Report</td>
+     </tr>
+     <tr>
+        <td><b>freedom</b></td>
+        <td>Freedom to make life choices rating based on World Happiness Report</td>
+     </tr>
+     <tr>
+        <td><b>generosity</b></td>
+        <td>Generosity rating based on World Happiness Report</td>
+     </tr>
+     <tr>
+        <td><b>income_class</b></td>
+        <td>Income Classification</td>
+     </tr>
+     <tr>
+        <td><b>cpi</b></td>
+        <td>Corruption Perceptions Index</td>
+     </tr>
+</table>
+</div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+      $('#myForm').submit(function(event) {
+        event.preventDefault();
+        $.ajax({
+          type: 'POST',
+          url: '/',
+          data: $(this).serialize()
+        })
+      });
+    });
+  </script>
+
+</body>
+
+
+</html>
