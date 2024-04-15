@@ -18,3 +18,8 @@ The Random Forest model is seamlessly integrated into the HTML, CSS, and JavaScr
 - HTML
 - CSS
 - JavaScript
+
+## How to run the file:
+- Download the zip file and extract.
+- Run the hello.py python file.
+- Go to the link provided by the Python script, typically something like 127.0.0.1:5000.
